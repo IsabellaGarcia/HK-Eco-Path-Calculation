@@ -1,0 +1,103 @@
+	var request = {
+		origin:start,
+		destination:end,
+		waypoints: waypts,
+		optimizeWaypoints: true,
+		travelMode: google.maps.TravelMode.DRIVING
+	};
+	directionsService.route(request, function(response, status) {
+	 if (status == google.maps.DirectionsStatus.OK) {
+		directionsDisplay.setDirections(response);
+	 }
+	});
+}
+	//----------------  end of initialize calcRoute  ----------------------
+
+	function codeAddress() {
+		var address = document.getElementById('address').value;
+		geocoder.geocode( { 'address': address}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				map.setCenter(results[0].geometry.location);
+				var marker = new google.maps.Marker({
+				map: map,
+				position: results[0].geometry.location
+			});
+		
+		document.getElementById("m").value = results[0].geometry.location.lat();
+		document.getElementById("n").value = results[0].geometry.location.lng();
+		check1 = 1;
+		doublecheck();
+		} 
+		else {
+			alert('Geocode was not successful for the following reason: ' + status);
+		}
+		});
+	}
+	
+	function codeAddress1() {
+		var address1 = document.getElementById('address1').value;
+		geocoder.geocode( { 'address': address1}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				map.setCenter(results[0].geometry.location);
+				var marker = new google.maps.Marker({
+					map: map,
+					position: results[0].geometry.location
+				});
+				document.getElementById("o").value = results[0].geometry.location.lat();
+				document.getElementById("p").value = results[0].geometry.location.lng();
+				check2 = 1;
+				doublecheck();
+			} 
+			else{
+			alert('Geocode was not successful for the following reason: ' + status);
+			}
+		});
+	}
+
+	function doublecheck(){
+		if(check1*check2 != 0){
+		alert("Now you can click on the Submit button to get the result");
+		document.getElementById("mySubmit").disabled = false;
+		}
+	}
+
+	function getStart(val){
+		codeAddress();
+	}
+	
+	function getEnd(val){
+		codeAddress1();
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize); 
+
+	</script> 
+	</head>
+
+
+	<body> <table> <tr> <td> 
+	<div id="map-canvas"></div>
+	<td/><td>
+
+		<div><label> Start point name: <input name= "address" id = "address" type="textbox"
+		onchange = "getStart(this.value)"/></label></div>
+		<div><label> End point name: <input name= "address1" id = "address1" type="textbox"
+		onchange = "getEnd(this.value)"/></label></div>
+
+
+
+
+
+
+
+
+
+	<div id=\"input form\"> 
+	<form action=\"cgi-bin/Dijkstra/Dijkstra.exe\" > 
+	<p>The latitude and longitude of points: </p> 
+	<div><label> Start_lat: <input name= "m" maxlength="18" /></label></div>
+	<div><label> Start_lng: <input name= "n" maxlength="18" /></label></div>
+	<div><label> End_lat:<input  name= "o" maxlength="18" /><label></div>
+	<div><label> End_lng:<input  name= "p" maxlength="18" /><label></div>
+	<div><input type="submit" id = "mySubmit" value="Submit" disabled = true /></div>
+	</form></div></td></tr></table></body></html>

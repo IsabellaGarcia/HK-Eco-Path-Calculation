@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Independent Project</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style1.css" />
+	
+	
+    <style type ="text/css">
+      html, body, #map-canvas {
+        height: 800px;
+		width: 900px;
+		float: left
+      }
+	  div #input form{
+		height: 800px;
+		width: 50px;
+		float:right
+	  }
+    </style>
+
+	
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&language=en"></script>
+    <script>
+
+	var start_lat;
+	var start_lng;
+	var end_lat;
+	var end_lng;
+	var map;
+	var markers = [];   //array to put markers
+	var directionsDisplay;
+	var directionsService = new google.maps.DirectionsService();
+	var geocoder;
+	var check1 = 0;
+	var check2 = 0;
+
+	function initialize() {
+		directionsDisplay = new google.maps.DirectionsRenderer();
+		geocoder = new google.maps.Geocoder();
+		var mapOptions = {
+		zoom: 13,
+		center: new google.maps.LatLng(22.335269, 114.265802)
+	  };
+		map = new google.maps.Map(document.getElementById('map-canvas'),
+		  mapOptions);
+		
+	   directionsDisplay.setMap(map);
+	   
+	   directionsDisplay.setPanel(document.getElementById('directions-panel'));
+	   
+	}
+
+	function codeAddress() {
+		var address = document.getElementById('address').value;
+		geocoder.geocode( { 'address': address}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+			var marker = new google.maps.Marker({
+			map: map,
+			position: results[0].geometry.location
+		});
+		
+		document.getElementById("m").value = results[0].geometry.location.lat();
+		document.getElementById("n").value = results[0].geometry.location.lng();
+		check1 = 1;
+		doublecheck();
+		} else {
+			alert('Geocode was not successful for the following reason: ' + status);
+			}
+		});
+	}
+	
+	function codeAddress1() {
+		var address1 = document.getElementById('address1').value;
+		geocoder.geocode( { 'address': address1}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+			var marker = new google.maps.Marker({
+			map: map,
+			position: results[0].geometry.location
+		});
+		
+		document.getElementById("o").value = results[0].geometry.location.lat();
+		document.getElementById("p").value = results[0].geometry.location.lng();
+		check2 = 1;
+		doublecheck();
+		} else {
+			alert('Geocode was not successful for the following reason: ' + status);
+			}
+		});
+	}
+	
+	function doublecheck(){
+		if(check1*check2 != 0){
+		alert("Now you can click on the Submit button to get the result");
+			document.getElementById("mySubmit").disabled = false;
+			}
+	}
+	
+	function getStart(val){
+		codeAddress();
+	}
+	
+	function getEnd(val){
+		codeAddress1();
+	}
+	
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+
+    </script>
+ 
+
+
+ </head>
+  <body>
+	<h1 id = "header">HK</h1>
+
+	<div id="content">
+		<div id="map-canvas"></div>	
+		<div id = "bar">
+		<INPUT name="pclog" type="button" value="GO" onClick="location.href='test.html'">
+		<div><label> Start point name: <input name= "address" id = "address" type="textbox" 
+		onchange = "getStart(this.value)"/></label></div>
+		<div><label> End point name: <input name= "address1" id = "address1" type="textbox" 
+		onchange = "getEnd(this.value)"/></label></div>	
+		<div id="input form">
+			<form action="cgi-bin/Dijkstra/Dijkstra.exe" >
+				  <p> The latitude and longitude of points:</p>
+				  <div><label> Start_lat: <input name= "m" id = "m" maxlength="8" /></label></div>
+				  <div><label> Start_lng: <input name= "n" id = "n" maxlength="8" /></label></div>
+				  <div><label> End_lat:<input  name= "o" id = "o" maxlength="8" /><label></div>
+				  <div><label> End_lng:<input  name= "p" id = "p" maxlength="8" /><label></div>
+				  <div><input type="submit" id = "mySubmit" value="Submit" disabled = true /></div>
+			</form>
+		</div>
+		<div id="directions-panel"></div>
+	</div>
+	
+	 <div class="clear"></div>
+	</div>
+	
+	
+	
+	
+  </body>
+</html>

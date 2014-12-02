@@ -1,0 +1,35 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+h1 { font-size: 4.0em; }
+
+body {
+	font-size: 90%;
+	font-family: Garamond, sans-serif;
+	background: url(images/content-bg.png) left repeat-y #FFFADA;
+}
+.clear { clear: both; }
+
+#header {
+	background: #e3da9d;
+	padding: 5px 0 5px 5px;
+}
+#map-canvas {
+		max-width: 760px;
+	}
+	
+#bar {
+	width: 130px;
+	float: right;
+	padding: 5px 5px 5px 5px;
+	}
+#directions-panel {
+          float: none;
+}
+
+#directions-panel {
+        float: right;
+        width: 130px;
+        overflow: auto;
+      }

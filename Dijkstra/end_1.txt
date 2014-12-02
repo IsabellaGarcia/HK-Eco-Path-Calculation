@@ -1,0 +1,55 @@
+
+	function codeAddress() {
+		var address = document.getElementById('address').value;
+		geocoder.geocode( { 'address': address}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+			var marker = new google.maps.Marker({
+			map: map,
+			position: results[0].geometry.location
+		});
+		
+		document.getElementById("m").value = results[0].geometry.location.lat();
+		document.getElementById("n").value = results[0].geometry.location.lng();
+		check1 = 1;
+		doublecheck();
+		} else {
+			alert('Geocode was not successful for the following reason: ' + status);
+			}
+		});
+	}
+	
+	function codeAddress1() {
+		var address1 = document.getElementById('address1').value;
+		geocoder.geocode( { 'address': address1}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+			var marker = new google.maps.Marker({
+			map: map,
+			position: results[0].geometry.location
+		});
+		
+		document.getElementById("o").value = results[0].geometry.location.lat();
+		document.getElementById("p").value = results[0].geometry.location.lng();
+		check2 = 1;
+		doublecheck();
+		} else {
+			alert('Geocode was not successful for the following reason: ' + status);
+			}
+		});
+	}
+	
+	function doublecheck(){
+		if(check1*check2 != 0){
+		alert("Now you can click on the Submit button to get the result");
+			document.getElementById("mySubmit").disabled = false;
+			}
+	}
+	
+	function getStart(val){
+		codeAddress();
+	}
+	
+	function getEnd(val){
+		codeAddress1();
+	}
