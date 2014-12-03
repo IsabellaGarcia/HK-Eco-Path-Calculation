@@ -1,84 +1,12 @@
-﻿生成启动时间为 2014/11/27 19:42:48。
+﻿生成启动时间为 2014/12/2 23:10:14。
      1>项目“C:\Users\isabella\Documents\Visual Studio 2010\Projects\Dijkstra-1\Dijkstra\Dijkstra\Dijkstra.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
-         正在创建“Debug\Dijkstra.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+         正在对“Debug\Dijkstra.unsuccessfulbuild”执行 Touch 任务。
        ClCompile:
-         c:\Users\isabella\AppData\Local\Visual Studio2010\VC\bin\CL.exe /c /I"C:\Program Files\MySQL\Connector.C++ 1.1\include" /I"C:\Program Files\MySQL\Connector.C++ 1.1\include\cppconn" /I"C:\Users\isabella\Documents\Visual Studio 2010\library_extra\boost_1_56_0\boost_1_56_0" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt database.cpp main.cpp
-         main.cpp
-     1>c:\program files\mysql\connector.c++ 1.1\include\cppconn\sqlstring.h(39): warning C4251: “sql::SQLString::realStr”: class“std::basic_string<_Elem,_Traits,_Ax>”需要有 dll 接口由 class“sql::SQLString”的客户端使用
-                 with
-                 [
-                     _Elem=char,
-                     _Traits=std::char_traits<char>,
-                     _Ax=std::allocator<char>
-                 ]
-     1>c:\program files\mysql\connector.c++ 1.1\include\mysql_connection.h(165): warning C4251: “sql::mysql::MySQL_Connection::proxy”: class“boost::shared_ptr<T>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
-                 with
-                 [
-                     T=sql::mysql::NativeAPI::NativeConnectionWrapper
-                 ]
-     1>c:\program files\mysql\connector.c++ 1.1\include\mysql_connection.h(169): warning C4251: “sql::mysql::MySQL_Connection::service”: class“boost::scoped_ptr<T>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
-                 with
-                 [
-                     T=sql::mysql::MySQL_Statement
-                 ]
-     1>c:\program files\mysql\connector.c++ 1.1\include\cppconn\exception.h(61): warning C4251: “sql::SQLException::sql_state”: class“std::basic_string<_Elem,_Traits,_Ax>”需要有 dll 接口由 class“sql::SQLException”的客户端使用
-                 with
-                 [
-                     _Elem=char,
-                     _Traits=std::char_traits<char>,
-                     _Ax=std::allocator<char>
-                 ]
-     1>c:\program files\mysql\connector.c++ 1.1\include\cppconn\exception.h(145): warning C4251: “sql::SQLUnsupportedOptionException::option”: class“std::basic_string<_Elem,_Traits,_Ax>”需要有 dll 接口由 struct“sql::SQLUnsupportedOptionException”的客户端使用
-                 with
-                 [
-                     _Elem=char,
-                     _Traits=std::char_traits<char>,
-                     _Ax=std::allocator<char>
-                 ]
-     1>c:\users\isabella\documents\visual studio 2010\projects\dijkstra-1\dijkstra\dijkstra\main.cpp(145): warning C4018: “<”: 有符号/无符号不匹配
-         database.cpp
-     1>c:\program files\mysql\connector.c++ 1.1\include\cppconn\sqlstring.h(39): warning C4251: “sql::SQLString::realStr”: class“std::basic_string<_Elem,_Traits,_Ax>”需要有 dll 接口由 class“sql::SQLString”的客户端使用
-                 with
-                 [
-                     _Elem=char,
-                     _Traits=std::char_traits<char>,
-                     _Ax=std::allocator<char>
-                 ]
-     1>c:\program files\mysql\connector.c++ 1.1\include\mysql_connection.h(165): warning C4251: “sql::mysql::MySQL_Connection::proxy”: class“boost::shared_ptr<T>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
-                 with
-                 [
-                     T=sql::mysql::NativeAPI::NativeConnectionWrapper
-                 ]
-     1>c:\program files\mysql\connector.c++ 1.1\include\mysql_connection.h(169): warning C4251: “sql::mysql::MySQL_Connection::service”: class“boost::scoped_ptr<T>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
-                 with
-                 [
-                     T=sql::mysql::MySQL_Statement
-                 ]
-     1>c:\program files\mysql\connector.c++ 1.1\include\cppconn\exception.h(61): warning C4251: “sql::SQLException::sql_state”: class“std::basic_string<_Elem,_Traits,_Ax>”需要有 dll 接口由 class“sql::SQLException”的客户端使用
-                 with
-                 [
-                     _Elem=char,
-                     _Traits=std::char_traits<char>,
-                     _Ax=std::allocator<char>
-                 ]
-     1>c:\program files\mysql\connector.c++ 1.1\include\cppconn\exception.h(145): warning C4251: “sql::SQLUnsupportedOptionException::option”: class“std::basic_string<_Elem,_Traits,_Ax>”需要有 dll 接口由 struct“sql::SQLUnsupportedOptionException”的客户端使用
-                 with
-                 [
-                     _Elem=char,
-                     _Traits=std::char_traits<char>,
-                     _Ax=std::allocator<char>
-                 ]
-         正在生成代码...
+         所有输出均为最新。
        Link:
-         c:\Users\isabella\AppData\Local\Visual Studio2010\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\isabella\Documents\Visual Studio 2010\Projects\Dijkstra-1\Dijkstra\Debug\Dijkstra.exe" /NOLOGO /LIBPATH:"C:\Program Files\MySQL\Connector.C++ 1.1\lib\debug" /LIBPATH:"C:\Users\isabella\Documents\Visual Studio 2010\library_extra\boost_1_56_0\boost_1_56_0\stage\lib" /LIBPATH:"C:\Program Files\MySQL\MySQL Server 5.6\lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libmysql.lib mysqlcppconn.lib "mysqlcppconn-static.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Dijkstra.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\isabella\Documents\Visual Studio 2010\Projects\Dijkstra-1\Dijkstra\Debug\Dijkstra.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\isabella\Documents\Visual Studio 2010\Projects\Dijkstra-1\Dijkstra\Debug\Dijkstra.lib" /MACHINE:X86 Debug\database.obj
-         Debug\Dijkstra.obj
-         Debug\main.obj
-         Debug\parseXML.obj
-         LINK : 没有找到 C:\Users\isabella\Documents\Visual Studio 2010\Projects\Dijkstra-1\Dijkstra\Debug\Dijkstra.exe 或上一个增量链接没有生成它；正在执行完全链接
+         所有输出均为最新。
          Dijkstra.vcxproj -> C:\Users\isabella\Documents\Visual Studio 2010\Projects\Dijkstra-1\Dijkstra\Debug\Dijkstra.exe
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\isabella\Documents\Visual Studio 2010\Projects\Dijkstra-1\Dijkstra\Debug\Dijkstra.exe;#1" /manifest Debug\Dijkstra.exe.intermediate.manifest
        FinalizeBuildStatus:
          正在删除文件“Debug\Dijkstra.unsuccessfulbuild”。
          正在对“Debug\Dijkstra.lastbuildstate”执行 Touch 任务。
@@ -86,4 +14,4 @@
 
 生成成功。
 
-已用时间 00:00:12.92
+已用时间 00:00:00.23

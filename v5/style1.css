@@ -1,0 +1,50 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+h1 { 
+  font-size: 2.5em;
+  text-align:center; }
+
+body {
+	weight: 1000px;
+	height: 620x;
+	font-family: Garamond, sans-serif;
+	background: url(images/content-bg.png) left repeat-y #FFFADA;
+}
+#content{
+	padding: 3px,3px,3px,3px;
+	}
+.clear { clear: both; }
+
+#header {
+	background: #FFFADA;
+	padding: 5px 0 5px 5px;
+}
+	
+#bar {
+	width: 200px;
+	float: right;
+	padding: 0 0 0 0px;
+	position: relative;
+	left: -85px;
+	}
+#directions-panel {
+          float: none;
+}
+#pclog1 {
+	padding: 0px 0px 10px 0px;
+}
+#pclog2{
+	padding: 20px 0px 3px 0px;
+}
+
+#mySubmit{
+	margin: 10px 0px 3px 0px;
+	padding: 0px 5px 0px 5px;
+}
+#directions-panel {
+        float: right;
+        width: 130px;
+        overflow: auto;
+}

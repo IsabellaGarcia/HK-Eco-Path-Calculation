@@ -85,21 +85,24 @@ int database::search_name_index(int name){
 	return index;
 }
 
-int database::search_location_index(long double E, int f_E, long double N, int f_N){
+int database::search_location_index(long double N, int f_N, long double E, int f_E){
 		sql::Statement *stmt; 
 		sql::ResultSet * res;
 		stmt = con->createStatement();
 		//Build up search sentence
 		
-		string point_1 = to_string(E-0.001);
-		string point_2 = to_string(N);
-		string point_3 = to_string(N+0.001);
+		string point_1 = to_string(N-0.001);
+		string point_2 = to_string(N+0.001);
+		string point_3 = to_string(E-0.001);
+		string point_4 = to_string(E+0.001);
 		string c ="select * from points where north >= \'";	
 		c = c + point_1;
-		c = c + "\' and east >= \'";
+		c = c + "\' and north <= \'";
 		c = c + point_2;
-		c = c + "\' and east <= \'";
+		c = c + "\' and east >= \'";
 		c = c + point_3;
+		c = c + "\' and east <= \'";
+		c = c + point_4;
 		c = c +  "\' order by north asc";
 
 		//cout << c << endl;

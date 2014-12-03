@@ -10,15 +10,13 @@
 #include<string>
 
 void draw_canvas(vector<tuple<double, double>>,string);
-void draw_layout();
+void draw_layout(vector<tuple<double, double>>,string);
 void draw_structure();
 
 vector<tuple<double, double>> way;
 
 int main(){
-
-
-	database db;
+	/*database db;
 	ifstream infile;
 	ofstream outfile;
 	infile.open("roadlink.txt");
@@ -41,9 +39,10 @@ int main(){
 	infile.close();
 	outfile.close();
 	
-	while(1);
+	while(1);*/
+
 	//while(1);
-	/*parseXML px;
+	parseXML px;
 	px.parse();
 	char *data;
 	long double m,n,o,p;
@@ -70,21 +69,17 @@ int main(){
 				get<0>(way.at(0)) = db1.search_north_index(start);
 				get<1>(way.at(0)) = db1.search_east_index(start);
 			}
-				tuple<double, double> temp = make_tuple(m,n);			
-				way.insert(way.begin(),temp);
-				tuple<double, double> temp_1 = make_tuple(o,p);
-				way.push_back(temp_1);
-				draw_canvas(way,d.get_capturetime());
+				draw_layout(way,d.get_capturetime());
 		}
 		else{
 			tuple<double, double> temp = make_tuple(m,n);			
 			way.insert(way.begin(),temp);
 			tuple<double, double> temp_1 = make_tuple(o,p);
 			way.push_back(temp_1);
-			draw_canvas(way,d.get_capturetime());
+			draw_layout(way,d.get_capturetime());
 		}
 	}
-	*/
+	
 	return 0;
 }
 
@@ -256,7 +251,7 @@ void draw_canvas(vector<tuple<double, double>> waypts,string capture_time){
 	printf("</form></div></td></tr></table></body></html>");
 }
 
-void draw_layout(){
+void draw_layout(vector<tuple<double, double>> waypts,string capture_time){
 	ifstream infile;
 	infile.open("layout.txt");
 	
@@ -266,4 +261,90 @@ void draw_layout(){
 		cout << line;
 	}
 	infile.close();
+
+	cout << "var start_lat = " << get<0>(waypts.at(0)) <<";";
+	cout << "var start_lng = " << get<1>(waypts.at(0)) <<";";
+	cout << "var end_lat = " << get<0>(waypts.at(waypts.size()-1)) <<";";
+	cout << "var end_lng = " << get<1>(waypts.at(waypts.size()-1)) <<";";
+
+
+	printf("var map; ");
+	printf("var markers = []; ");
+	printf("var waypts = []; ");
+	printf("var directionsDisplay; ");
+	printf("var directionsService = new google.maps.DirectionsService();");
+	printf("var geocoder; ");
+	printf("var check1 = 0;");
+	printf("var check2 = 0;");
+
+	//----------------  Initialize function  -----------------------------
+	printf("function initialize() { ");
+	printf("directionsDisplay = new google.maps.DirectionsRenderer();");
+	printf("geocoder = new google.maps.Geocoder();");
+	printf("var mapOptions = {  ");
+	printf("zoom: 13, center: new google.maps.LatLng(22.335269, 114.265802)};");
+	printf("map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);");
+	printf("directionsDisplay.setMap(map); ");
+	printf("directionsDisplay.setPanel(document.getElementById('directions-panel'));");
+	printf("calcRoute();");
+	//----------------  end of initialize function  ----------------------
+	printf("} ");
+
+  
+		//----------------  Initialize calcRoute  -----------------------------
+	printf("function calcRoute() {");
+	//set start and end point
+	printf(" var start = new google.maps.LatLng(start_lat, start_lng);");
+	printf("var end = new google.maps.LatLng(end_lat, end_lng);");
+  
+  // set way points along the way
+	printf("var waypts = [];");
+  //for (var i = 0; i < checkboxArray.length; i++){
+
+	for( int i = 1; i < way.size()-1; i++){
+		cout << "var way1 = new google.maps.LatLng(" << get<0>(waypts.at(i))
+			<<"," << get<1>(waypts.at(i))<<");";
+		printf("waypts.push({");
+		printf("location: way1,");
+		printf("stopover:true});");
+	}
+			  
+	printf(" var request = {");
+	printf("origin:start,");
+	printf("destination:end,");
+	printf("waypoints: waypts,");
+	printf("optimizeWaypoints: true,");
+	//Added
+	printf("avoidTolls: true,");
+	printf("travelMode: google.maps.TravelMode.DRIVING");
+	printf("};");
+	printf("directionsService.route(request, function(response, status) {");
+	printf(" if (status == google.maps.DirectionsStatus.OK) {");
+	printf("directionsDisplay.setDirections(response);");
+	printf(" }");
+	printf(" });");
+	printf("}");	
+
+
+	ifstream infile_2;
+	infile_2.open("end_1.txt");
+	
+	while(!infile_2.eof()){
+		string line_2;
+		getline(infile_2,line_2);
+		cout << line_2;
+	}
+	infile_2.close();
+
+
+	ifstream infile_1;
+	infile_1.open("layout2.txt");
+	
+	while(!infile_1.eof()){
+		string line_1;
+		getline(infile_1,line_1);
+		cout << line_1;
+	}
+	infile_1.close();
+	cout <<"<p>Traffic data is collected at </p>" << capture_time << endl;
 }

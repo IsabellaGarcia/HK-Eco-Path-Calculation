@@ -29,6 +29,7 @@ var NUM = 617;
 var directionsDisplay = new Array(NUM);
 var directionsService = new Array(NUM);
 var e = 0;
+var order = 0;
 var start = new Array(NUM);
 var end = new Array(NUM);
 var request = new Array(NUM);
@@ -55,6 +56,8 @@ function initialize() {
 		directionsDisplay[i].setMap(map);
 	}
 	calcRoute();
+	var t = setInterval("result()",50);
+	
 }
 
 function calcRoute() {
@@ -74,22 +77,30 @@ function calcRoute() {
 			destination:end[x],
 			travelMode: google.maps.TravelMode.DRIVING
 		};
-		setTimeout(service(),5000);
-	
-	}
-	//alert(x);
-	f.Close();
-}
-
-function service(){
-	//alert(x1);
-	directionsService[0].route(request[x], function(response, status) {
+	/* 	directionsService[x].route(request[x], function(response, status) {
 			if (status == google.maps.DirectionsStatus.OK) {
 				directionsDisplay[e].setDirections(response);
 				e++;
 				alert(e);
 				}
-		});	
+		})*/
+	}
+	f.Close();
+}
+
+function result(){
+	directionsService[order].route(request[order], function(response, status) {
+			if (status == google.maps.DirectionsStatus.OK) {
+				directionsDisplay[e].setDirections(response);
+				e++;
+				}
+		})
+	order++;	
+}
+
+
+function service(){
+
 }
 /*function(var request1, var directionsService, var e){
 	directionsDisplay1 = new google.maps.DirectionsRenderer();

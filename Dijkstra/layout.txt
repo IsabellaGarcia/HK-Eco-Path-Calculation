@@ -4,43 +4,20 @@
     <title>Independent Project</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <style type ="text/css">
- *{
-	margin: 0;
-	padding: 0;
-	}
-	h1 { font-size: 4.0em; }
-
-	body {
-		font-size: 90%;
-		font-family: Garamond, sans-serif;
-		background: url(images/content-bg.png) left repeat-y #FFFADA;
-		float: left;
-	}
-	.clear { clear: both; }
-
+	<link rel="stylesheet" type="text/css" href="style1.css" />
 	
-	#header {
-		background: #e3da9d;
-		padding: 5px 0 5px 5px;
-	}
-	#map-canvas {
-			width: 800px;
-			height:600px;
-			float: left;
-		}
-		
-	#bar {
-		width: 170px;
-		height:800px;
-		float: right;
-		padding: 5px 5px 5px 5px;
-		}
-
-	#directions-panel {
-		height:300px;
-		overflow: scroll;
-	}
+	
+    <style type ="text/css">
+      html, body, #map-canvas {
+        height: 800px;
+		width: 900px;
+		float: left
+      }
+	  div #input form{
+		height: 800px;
+		width: 50px;
+		float:right
+	  }
     </style>
 
 	
