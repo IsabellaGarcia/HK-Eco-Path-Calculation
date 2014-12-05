@@ -4,30 +4,30 @@
 	
  </head>
   <body>
-	<h1 id = "header">HK</h1>
+	<h1 id = "header">Economic Path Calculator based on HK Real-time Traffic condition</h1>
 
 	<div id="content">
 		<div id="map-canvas"></div>	
 		<div id = "bar">
-		<INPUT name="pclog" type="button" value="Roads in database" onClick="location.href='test.html'">
-		<p> ---------------------------- </p>
+		<INPUT name="pclog" type="button" value="     All Roads in database     " onClick="location.href='test.html'">
+		<div id = "pclog1"> <p>  Button above links to show all the roads in the database    </p> </div>
+		<div > <p>  ----------------------------------------   </p> </div>
 		<div><label> Start point name: <input name= "address" id = "address" type="textbox" 
 		onchange = "getStart(this.value)"/></label></div>
 		<div><label> End point name: <input name= "address1" id = "address1" type="textbox" 
 		onchange = "getEnd(this.value)"/></label></div>	
 		<div id="input form">
-			<form action="cgi-bin/Dijkstra/Dijkstra.exe" >
-				  <p> The latitude and longitude of points:</p>
+			<form action="Dijkstra.exe" >
+				  <p id = "pclog2"> The latitude and longitude of points:</p>
 				  <div><label> Start_lat: <input name= "m" id = "m" maxlength="8" /></label></div>
 				  <div><label> Start_lng: <input name= "n" id = "n" maxlength="8" /></label></div>
 				  <div><label> End_lat:<input  name= "o" id = "o" maxlength="8" /><label></div>
 				  <div><label> End_lng:<input  name= "p" id = "p" maxlength="8" /><label></div>
-				  <div><input type="submit" id = "mySubmit" value="Submit" disabled = true /></div>
+				  <div><input type="submit" id = "mySubmit" value="              Submit               " disabled = true /></div>
 			</form>
 		</div>
-		<div id="directions-panel"></div>
+			<div id="directions-panel"></div>
 	</div>
-	
 	 <div class="clear"></div>
 	</div>
 	

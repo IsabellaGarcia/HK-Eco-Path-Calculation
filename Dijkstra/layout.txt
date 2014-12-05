@@ -1,25 +1,75 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Independent Project</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<html> 
+	<head>
+	<title>Hong Kong Maps</title>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="style1.css" />
-	
-	
-    <style type ="text/css">
-      html, body, #map-canvas {
-        height: 800px;
-		width: 900px;
-		float: left
-      }
-	  div #input form{
-		height: 800px;
-		width: 50px;
-		float:right
-	  }
-    </style>
-
-	
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&language=en"></script>
+ <style type ="text/css">	
+ *{		
+ margin: 0;		
+ padding: 0;	
+ }	
+ h1 { 	  
+ font-size: 2.5em;	  
+ text-align:center; 
+ }	
+  
+ html {       
+ height:1000px;		
+ width: 1300px;		
+ float: left     
+ }	
+ 
+ body {		
+ weight: 999px;		
+ height: 620x;		
+ font-family: Garamond, sans-serif;		
+ background: url(images/content-bg.png) left repeat-y #FFFADA;	
+ }	
+ 
+ #content{		
+ padding: 3px,3px,3px,3px;		
+ }	.clear { clear: both; }	
+ 
+ #header {		
+ background: #FFFADA;		
+ padding: 5px 0 5px 5px;	
+ }	
+ 
+ #bar {		
+ width: 200px;		
+ float: right;		
+ padding: 0 0 0 0px;		
+ position: relative;		
+ left: -85px;		
+ }	
+ 
+ #pclog1 {		
+ padding: 0px 0px 10px 0px;	
+ }	
+ 
+ #pclog2{		
+ padding: 20px 0px 3px 0px;	
+ }	
+ 
+ #mySubmit{		
+ margin: 10px 0px 3px 0px;		
+ padding: 0px 5px 0px 5px;	
+ }	
+ 
+ #directions-panel {			
+ float: right;			
+ width: 200px;
+ height: 200px;
+ overflow: auto;	
+ }	
+  
+ #map-canvas {        
+ height: 620px;		
+ width: 1000px;		
+ float: left;		
+ padding: 3px,3px,3px,3px;      
+ }    
+ </style>
+ 
+ <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&language=en"></script>
     <script>
